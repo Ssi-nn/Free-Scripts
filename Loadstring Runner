@@ -1,1 +1,34 @@
-print('a')
+--[[
+
+    TUTORIAL, I HOPE THIS CLEARS IT UP FOR YOU.
+
+    Link: Any Pastebin alternative (Github, ControlC, etc)
+    Code: Pastebin, and Pastebin ONLY! (Nothing else works)
+
+    / IF YOU ARE USING LINK, PUT "none" FOR CODE.
+    / IF YOU ARE USING CODE, PUT "none" FOR LINK.
+
+]]
+
+local function RunString(Code, Link)
+	if Code ~= "none" then
+        print("\nAttempting to run code ["..Code.."]\n")
+		if Link ~= "none" then
+			return warn("Link has to be set to 'none'!")
+        else
+            loadstring(game:HttpGet("https://pastebin.com/raw/"..Code, true))()
+            print("\nRan the Pastebin loadstring ["..Code.."] successfully.")
+        end
+	end
+    if Link ~= "none" then
+        print("\nAttempting to run link ["..Link.."]\n")
+        if Code ~= "none" then
+            return warn("Code has to be set to 'none'!")
+        else
+            loadstring(game:HttpGet(Link, true))()
+            print("\nRan the link ["..Link.."] successfully!")
+        end
+    end
+end
+
+RunString("", "")
