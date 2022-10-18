@@ -1,0 +1,65 @@
+local isLaunched = false
+local CoreGui = game:GetService("CoreGui")
+
+if CoreGui:FindFirstChild("SAJKHDGNTIUKAGHJSTKLAJKOUWTYAKJHSGTHJKASG") then
+    isLaunched = true
+else
+    isLaunched = false
+end
+
+local FolderName = "RBESYG1JP - Sin's Free Scripts"
+if isfolder(FolderName) then
+    delfolder(FolderName)
+end
+
+task.wait(.5)
+makefolder(FolderName)
+if isfolder(FolderName) then
+    if isfolder(FolderName.."\\LauncherDATA") then
+       delfolder(FolderName.."\\LauncherDATA") 
+    end
+    task.wait(.5)
+    makefolder(FolderName.."\\LauncherDATA")
+    if isfolder(FolderName.."\\LauncherDATA") then
+        if isfolder(FolderName.."\\LauncherDATA\\isGameProcess") then
+            delfolder(FolderName.."\\LauncherDATA\\isGameProcess")
+        end
+        task.wait(.5)
+        makefolder(FolderName.."\\LauncherDATA\\isGameProcess")
+        if isfolder(FolderName.."\\LauncherDATA\\isGameProcess") then
+            if isfile(FolderName.."\\LauncherDATA\\isGameProcess\\isGameLaunchedCheck.lua") then
+               delfile(FolderName.."\\LauncherDATA\\isGameProcess\\isGameLaunchedCheck.lua") 
+            end
+            task.wait(.5)
+            writefile(FolderName.."\\LauncherDATA\\isGameProcess\\isGameLaunchedCheck.lua", tostring(isLaunched))
+            if isfile(FolderName.."\\LauncherDATA\\isGameProcess\\isGameLaunchedCheck.lua") then
+                local Message = tostring(readfile(FolderName.."\\LauncherDATA\\isGameProcess\\isGameLaunchedCheck.lua"))
+                if Message == "true" then
+                    if CoreGui:FindFirstChild("SAJKHDGNTIUKAGHJSTKLAJKOUWTYAKJHSGTHJKASG") then
+                        loadstring(game:HttpGet("https://pastebin.com/raw/DM1iUVu8"))() 
+                    end
+                end
+                if Message == "false" then
+                    setclipboard("https://github.com/Ssi-nn/Free-Scripts")
+                    loadstring(game:HttpGet("https://pastebin.com/raw/Vg1wgwRh", true))()
+                    wait(.1)
+                    loadstring(game:HttpGet("https://pastebin.com/raw/f8e1HfnT", true))()
+                    coroutine.wrap(function()
+                        while task.wait(8) do
+                            for _,v in pairs(game:GetService("Workspace"):GetChildren()) do
+                                if v.Name == "Part" then
+                                    if v.CFrame == CFrame.new(-50.3422318, 2623.09961, 26.4913368, 2.24113464e-05, -0.25886941, -0.965912342, -1, -2.24113464e-05, -1.719594e-05, -1.719594e-05, 0.965912342, -0.25886941) then
+                                        if v.Color == Color3.fromRGB(190, 104, 98) then
+                                            game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(7, Enum.EasingStyle.Linear), {CFrame = CFrame.new(-50.3422318, 2623.09961, 26.4913368, 2.24113464e-05, -0.25886941, -0.965912342, -1, -2.24113464e-05, -1.719594e-05, -1.719594e-05, 0.965912342, -0.25886941) + Vector3.new(3,1,0)}):Play()
+                                        end 
+                                    end     
+                                end
+                            end
+                        end
+                    end)()
+                end
+            end
+        end
+    end
+end
+
